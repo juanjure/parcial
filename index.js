@@ -7,8 +7,6 @@ const url = `https://jsonplaceholder.typicode.com/users/${userId}`;
 //let phone
 let city
 let catchPhrase
-let address
-let company
 
 https.get(url, (res) => {
     let data = '';
@@ -22,8 +20,8 @@ https.get(url, (res) => {
         
         city = address.city
         catchPhrase = company.catchPhrase
-        console.log(`Ciudad: ${city}`);
-        console.log(`Eslogan: ${catchPhrase}`);
+        console.log(`Ciudad: ${city}`)
+        console.log(`Eslogan: ${catchPhrase}`)
     });
 }).on('error', (err) => {
     console.log(`Error: ${err.message}`);
