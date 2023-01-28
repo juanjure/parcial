@@ -1,10 +1,14 @@
 const https = require('https');
 
-const userId = 2;
+const userId = 10;
 const url = `https://jsonplaceholder.typicode.com/users/${userId}`;
 
-let name 
-let phone
+//let name 
+//let phone
+let city
+let catchPhrase
+let address
+let company
 
 https.get(url, (res) => {
     let data = '';
@@ -13,10 +17,13 @@ https.get(url, (res) => {
     });
     res.on('end', () => {
         const user = JSON.parse(data);
-        name = user.name
-        phone = user.phone
-        console.log(`Nombre: ${name}`);
-        console.log(`Telefono: ${phone}`);
+        const address = user.address
+        const company = user.company
+        
+        city = address.city
+        catchPhrase = company.catchPhrase
+        console.log(`Ciudad: ${city}`);
+        console.log(`Eslogan: ${catchPhrase}`);
     });
 }).on('error', (err) => {
     console.log(`Error: ${err.message}`);
